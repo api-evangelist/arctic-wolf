@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/arctic-wolf-ticket-api-openapi.json
+docs: https://docs.arcticwolf.com/en/developer-and-oem/ticket-api/ticket-api-quick-start-guide/use-the-ticket-api
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  token_format: JWT
+  credential: Personal API Key
+notes: >-
+  Arctic Wolf APIs (Ticket API, User API, Aurora Endpoint Defense API) authenticate
+  with a bearer JWT. Developers generate a Personal API Key in the Unified Portal
+  (portal.arcticwolf.com) under Organization Profile > Personal API Keys, then pass
+  it as a bearer token. Service endpoints are regional pods (US001/US002/US003,
+  EU001, AU001, CA001); select the pod that matches your organization. The Aurora
+  Endpoint Defense API additionally documents a short-lived access-token lifecycle
+  (tokens are single-use per request and valid for a few minutes).
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/arctic-wolf-ticket-api-openapi.json
