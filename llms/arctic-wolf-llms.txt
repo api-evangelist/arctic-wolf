@@ -1,0 +1,34 @@
+This is the [sitemap](https://arcticwolf.com/sitemap.xml) of this website.
+
+# Arctic Wolf: The Leaders in Security Operations
+
+> Arctic Wolf delivers dynamic, 24x7 AI-driven cybersecurity protection tailored to the needs of your organization. Ready to boost your cyber resilience?
+
+## Posts
+- [Protecting Your Data With Backups: The Complete Guide](https://arcticwolf.com/resources/blog/how-to-protect-your-data-with-backups/)
+- [How To Combat AI-Enhanced Social Engineering Attacks](https://arcticwolf.com/resources/blog/how-to-combat-ai-enhanced-social-engineering-attacks/)
+- [What's Behind The Rise of Spear Phishing Attacks on IT Leaders?](https://arcticwolf.com/resources/blog/whats-behind-the-rise-of-spear-phishing-attacks-on-it-leaders/)
+- [Shai-Hulud Malware Targets Numerous NPM Packages in Second-Wave NPM Supply-Chain Attack](https://arcticwolf.com/resources/blog/shai-hulud-malware-targets-numerous-npm-packages-second-wave-npm-supply-chain-attack/)
+- [Arctic Wolf Recognized with CRN 2025 Products of the Year Award for Managed Detection and Response](https://arcticwolf.com/resources/press-releases/arctic-wolf-recognized-with-crn-2025-products-of-the-year-award-for-managed-detection-and-response/)
+- [Arctic Wolf Launches New Integration with Abnormal AI to Enhance Email Threat Detection and Response](https://arcticwolf.com/resources/press-releases/arctic-wolf-launches-new-integration-with-abnormal-ai-to-enhance-email-threat-detection-and-response/)
+
+## Pages
+- [Request a Demo | Arctic Wolf](https://arcticwolf.com/request-demo/)
+- [Contact Us | Arctic Wolf](https://arcticwolf.com/company/contact-us/)
+- [Managed Detection and Response (MDR) | Arctic Wolf](https://arcticwolf.com/solutions/managed-detection-and-response/)
+- [Aurora Endpoint Security | Arctic Wolf](https://arcticwolf.com/solutions/endpoint-security/)
+- [Security Operations Bundles | Arctic Wolf](https://arcticwolf.com/solutions/bundles/)
+- [Alpha AI - Arctic Wolf](https://arcticwolf.com/aurora-platform/alpha-ai/)
+- [Incident Response - Arctic Wolf](https://arcticwolf.com/solutions/incident-response/)
+- [Incident360 Retainer | Arctic Wolf](https://arcticwolf.com/solutions/incident-response-retainer/)
+
+## Categories
+- [Blog](https://arcticwolf.com/resources/blog/)
+- [News and Awards](https://arcticwolf.com/resources/category/news/)
+- [Press Releases](https://arcticwolf.com/resources/press-releases/)
+
+## Tags
+- [Security Bulletins](https://arcticwolf.com/resources/tag/security-bulletins/)
+- [Guides](https://arcticwolf.com/resources/category/guide/)
+- [White Papers](https://arcticwolf.com/resources/category/white-paper/)
+- [Reports](https://arcticwolf.com/resources/category/report/)

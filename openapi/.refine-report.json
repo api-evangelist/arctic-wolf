@@ -1,0 +1,18 @@
+{
+  "provider": "arctic-wolf",
+  "sources": [
+    "arctic-wolf-attachment-api-openapi.yml",
+    "arctic-wolf-comment-api-openapi.yml",
+    "arctic-wolf-ticket-api-openapi.yml"
+  ],
+  "outputs": [
+    "arctic-wolf-attachment-api-openapi.yml",
+    "arctic-wolf-comment-api-openapi.yml",
+    "arctic-wolf-ticket-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

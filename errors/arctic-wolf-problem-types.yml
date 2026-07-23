@@ -1,0 +1,64 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/arctic-wolf-ticket-api-openapi.json
+format: custom
+envelope:
+  description: >-
+    Error responses return a JSON object with a machine-readable "code" (string,
+    ^[a-zA-Z0-9_-]+$, 1-100 chars) and a human-readable "description" (1-1000 chars).
+    This is a custom error envelope, not RFC 9457 application/problem+json.
+  fields:
+  - name: code
+    required: true
+    type: string
+  - name: description
+    required: false
+    type: string
+problems:
+- status: 400
+  name: BadRequestError
+  title: Bad request
+  description: The request was malformed or failed validation.
+  source_operations:
+  - listTickets
+  - closeTicket
+  - addCommentToTicket
+- status: 401
+  name: UnauthorizedError
+  title: Unauthorized
+  description: Missing or invalid bearer token (Personal API Key).
+  source_operations:
+  - listTickets
+  - getTicketById
+  - closeTicket
+  - addCommentToTicket
+  - getAttachment
+- status: 403
+  name: ForbiddenError
+  title: Forbidden
+  description: The authenticated principal lacks access to the requested organization or resource.
+  source_operations:
+  - listTickets
+  - getTicketById
+  - closeTicket
+  - addCommentToTicket
+  - getAttachment
+- status: 404
+  name: NotFoundError
+  title: Not found
+  description: The requested ticket, attachment, or resource does not exist.
+  source_operations:
+  - getTicketById
+  - closeTicket
+  - addCommentToTicket
+  - getAttachment
+- status: 500
+  name: InternalServerError
+  title: Internal server error
+  description: An unexpected error occurred on the Arctic Wolf side.
+  source_operations:
+  - listTickets
+  - getTicketById
+  - closeTicket
+  - addCommentToTicket
+  - getAttachment

@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/arctic-wolf-ticket-api-openapi.json
+authentication:
+  style: bearer JWT (Personal API Key)
+  header: Authorization
+  ref: authentication/arctic-wolf-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  example: /api/v1/organizations/{organizationUuid}/tickets
+regionalization:
+  style: regional service endpoints (pods)
+  hosts:
+  - https://ticket-api.managedgw.us001-prod.arcticwolf.net
+  - https://ticket-api.managedgw.us002-prod.arcticwolf.net
+  - https://ticket-api.managedgw.us003-prod.arcticwolf.net
+  - https://ticket-api.managedgw.eu001-prod.arcticwolf.net
+  - https://ticket-api.managedgw.au001-prod.arcticwolf.net
+  - https://ticket-api.managedgw.ca001-prod.arcticwolf.net
+pagination:
+  style: offset
+  request_params:
+  - offset
+  - limit
+  response_field: meta
+  meta_fields:
+  - offset
+  - limit
+  - total
+  limits:
+    offset_max: 100000
+    limit_min: 1
+    limit_max: 1000
+idempotency:
+  supported: false
+  notes: No Idempotency-Key header or idempotency contract is documented in the Ticket API spec.
+error_envelope:
+  format: custom
+  fields:
+  - code
+  - description
+  ref: errors/arctic-wolf-problem-types.yml
+filtering:
+  notes: >-
+    listTickets supports rich query filters — status, assignee (email/first/last name),
+    createdBefore/createdAfter, updatedBefore/updatedAfter, priority, type, and includeComments.
+rate_limits:
+  documented: false

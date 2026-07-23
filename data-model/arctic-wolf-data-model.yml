@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/arctic-wolf-ticket-api-openapi.json
+entities:
+- name: Organization
+  key: organizationUuid
+  notes: Tenant scope for all Ticket API operations (path parameter).
+- name: Ticket
+  key: ticketId
+  fields_of_interest:
+  - status
+  - priority
+  - type
+  - assignee
+  relationships:
+  - kind: belongs_to
+    target: Organization
+    via: organizationUuid
+  - kind: has_many
+    target: Comment
+    via: comments
+  - kind: has_many
+    target: Attachment
+    via: attachments
+  - kind: has_one
+    target: User
+    via: assignee
+- name: Comment
+  key: id
+  relationships:
+  - kind: belongs_to
+    target: Ticket
+    via: ticketId
+  - kind: has_one
+    target: User
+    via: author
+- name: Attachment
+  key: attachmentId
+  relationships:
+  - kind: belongs_to
+    target: Ticket
+    via: ticketId
+- name: User
+  notes: Represents an assignee or comment author.
+enums:
+- TicketStatus
+- Priority
+- TicketType
+- CommentType

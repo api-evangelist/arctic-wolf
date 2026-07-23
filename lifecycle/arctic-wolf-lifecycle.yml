@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/arctic-wolf-ticket-api-openapi.json
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.arcticwolf.com/en/developer-and-oem
+status_page: https://status.arcticwolf.com/
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No public API deprecation/sunset policy located.
+deprecated_operations: []
+notes: >-
+  Ticket API is at v1 (uri-path versioned). Arctic Wolf operates a public status
+  page at status.arcticwolf.com. No dated public API changelog or formal deprecation
+  policy was located during this pass.

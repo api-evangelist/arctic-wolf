@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+skills:
+- file: arctic-wolf-triage-tickets.md
+  name: Triage Arctic Wolf security tickets
+  api: openapi/arctic-wolf-ticket-api-openapi.json
+  operations:
+  - listTickets
+  - getTicketById
+  - addCommentToTicket
+  - closeTicket
+  - getAttachment

@@ -1,0 +1,6 @@
+# Arctic Wolf Secure Vulnerability Disclosure 
+Contact: mailto:security.report@arcticwolf.com
+Preferred-Languages: en
+Canonical: https://arcticwolf.com/.well-known/security.txt
+Policy: https://arcticwolf.com/vulnerability-disclosure
+Hiring: https://arcticwolf.com/company/careers/

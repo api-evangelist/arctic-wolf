@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/arctic-wolf-ticket-api-openapi.json
+standards:
+- id: bearer-jwt
+  conforms: true
+  evidence: openapi securityScheme BearerAuth (http bearer, bearerFormat JWT)
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme declared; auth is Personal API Key bearer JWT
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error responses use a custom {code, description} envelope, not application/problem+json
+- id: offset-pagination
+  conforms: true
+  evidence: list responses carry a Meta object with offset/limit/total
+- id: taxii-1.1
+  conforms: true
+  evidence: Threat Intelligence APIs publish a TAXII 1.1 endpoint (docs.arcticwolf.com)
+- id: taxii-2.1
+  conforms: true
+  evidence: Threat Intelligence APIs publish a TAXII 2.1 endpoint (docs.arcticwolf.com)
+- id: stix
+  conforms: true
+  evidence: Threat Intelligence feeds distributed as STIX indicators over TAXII
+compliance_program:
+  published: true
+  source: https://arcticwolf.com/compliance/
+  certifications:
+  - SOC 2 Type II
+  - ISO 27001
+  - ISO 27017
+  - ISO 27018
+  - TX-RAMP
+  ref: security/arctic-wolf-trust-center.yml
