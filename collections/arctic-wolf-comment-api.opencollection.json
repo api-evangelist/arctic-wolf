@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticket Attachment Comment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a comment to a ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ticket-api.managedgw.us001-prod.arcticwolf.net/api/v1/organizations/:organizationUuid/tickets/:ticketId/comments",
+            "params": [
+              {
+                "name": "organizationUuid",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the organization"
+              },
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the ticket"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new comment to an existing ticket"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

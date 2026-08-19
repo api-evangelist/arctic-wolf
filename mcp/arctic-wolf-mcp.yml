@@ -2,16 +2,15 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/arctic-wolf-ticket-api-openapi.json
-notes: >-
-  No official hosted/remote Arctic Wolf MCP server was found. This is a candidate
-  tool list derived one-to-one from the Ticket API operations, for a future MCP
-  server fronting the Arctic Wolf Ticket API.
+notes: No official hosted/remote Arctic Wolf MCP server was found. This is a candidate tool list derived
+  one-to-one from the Ticket API operations, for a future MCP server fronting the Arctic Wolf Ticket API.
 server:
   name: arctic-wolf-ticket
   transport: http
 tools:
 - name: list_tickets
-  description: List tickets for an organization, with filters (status, assignee, priority, type, date ranges).
+  description: List tickets for an organization, with filters (status, assignee, priority, type, date
+    ranges).
   source_operation: openapi/arctic-wolf-ticket-api-openapi.json#listTickets
 - name: get_ticket_by_id
   description: Get a single ticket by its ID.
@@ -25,3 +24,9 @@ tools:
 - name: get_attachment
   description: Download an attachment from a ticket.
   source_operation: openapi/arctic-wolf-ticket-api-openapi.json#getAttachment
+deployment:
+  mode: none
+  verified: derived
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census

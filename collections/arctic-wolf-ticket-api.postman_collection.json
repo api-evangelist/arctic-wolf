@@ -1,0 +1,1577 @@
+{
+  "item": [
+    {
+      "id": "a7b344a4-750e-47de-9f44-eeecad03177e",
+      "name": "Ticket",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f4e516a-9c2f-4c20-a11d-1d188a26d64f",
+          "name": "List tickets for an organization",
+          "request": {
+            "name": "List tickets for an organization",
+            "description": {
+              "content": "Retrieve a paginated list of tickets for a specific organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                ":organizationUuid",
+                "tickets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by ticket status(es). Provide single value or comma-separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "assigneeByEmail",
+                  "value": "<email>",
+                  "description": "Filter by assignee email(s). Provide single email or comma-separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "assigneeByFirstName",
+                  "value": "<string>",
+                  "description": "Filter by assignee first name(s). Provide single name or comma-separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "assigneeByLastName",
+                  "value": "<string>",
+                  "description": "Filter by assignee last name(s). Provide single name or comma-separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedBefore",
+                  "value": "<dateTime>",
+                  "description": "Filter tickets that were last updated before this timestamp (ISO 8601, UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<dateTime>",
+                  "description": "Filter tickets that were last updated after this timestamp (ISO 8601, UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdBefore",
+                  "value": "<dateTime>",
+                  "description": "Filter tickets that were created before this timestamp (ISO 8601, UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAfter",
+                  "value": "<dateTime>",
+                  "description": "Filter tickets that were created after this timestamp (ISO 8601, UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Filter by priority level(s). Provide single value or comma-separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by ticket type(s). Provide single value or comma-separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to return results"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of items to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeComments",
+                  "value": "false",
+                  "description": "Whether to include comments & attachments in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "organizationUuid",
+                  "description": "(Required) The unique identifier for the organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89a313c4-4c56-453c-931e-a2555679537a",
+              "name": "A paginated list of tickets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "OPEN,PENDING"
+                    },
+                    {
+                      "key": "assigneeByEmail",
+                      "value": "agent@example.com,agent2@example.com"
+                    },
+                    {
+                      "key": "assigneeByFirstName",
+                      "value": "John,Jane"
+                    },
+                    {
+                      "key": "assigneeByLastName",
+                      "value": "Doe,Smith"
+                    },
+                    {
+                      "key": "updatedBefore",
+                      "value": "2026-03-04T14:00:00Z"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "2026-03-01T00:00:00Z"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "2026-03-04T23:59:59Z"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "2026-02-01T00:00:00Z"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "HIGH,URGENT"
+                    },
+                    {
+                      "key": "type",
+                      "value": "INCIDENT,PROBLEM"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": 12345,\n      \"title\": \"Cannot log in\",\n      \"description\": \"User reports login failure\",\n      \"organizationUuid\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"status\": \"OPEN\",\n      \"assignee\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"agent@example.com\"\n      },\n      \"priority\": \"HIGH\",\n      \"type\": \"INCIDENT\",\n      \"createdAt\": \"2025-07-31T10:00:00Z\",\n      \"updatedAt\": \"2025-08-01T12:00:00Z\",\n      \"commentCount\": 2,\n      \"attachmentCount\": 1,\n      \"comments\": [\n        {\n          \"id\": 90001,\n          \"body\": \"Investigating the issue.\",\n          \"author\": {\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"email\": \"agent@example.com\"\n          },\n          \"createdAt\": \"2025-08-01T11:00:00Z\",\n          \"type\": \"PUBLIC\"\n        }\n      ],\n      \"attachments\": [\n        {\n          \"id\": 70001,\n          \"commentId\": 90001,\n          \"deleted\": false,\n          \"filename\": \"auth-log.txt\",\n          \"contentType\": \"text/plain\",\n          \"createdAt\": \"2025-08-01T11:01:00Z\"\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"offset\": 0,\n    \"limit\": 20,\n    \"total\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64b1f8ba-e3b5-4476-90b6-c6c7f7fa5fab",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "OPEN,PENDING"
+                    },
+                    {
+                      "key": "assigneeByEmail",
+                      "value": "agent@example.com,agent2@example.com"
+                    },
+                    {
+                      "key": "assigneeByFirstName",
+                      "value": "John,Jane"
+                    },
+                    {
+                      "key": "assigneeByLastName",
+                      "value": "Doe,Smith"
+                    },
+                    {
+                      "key": "updatedBefore",
+                      "value": "2026-03-04T14:00:00Z"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "2026-03-01T00:00:00Z"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "2026-03-04T23:59:59Z"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "2026-02-01T00:00:00Z"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "HIGH,URGENT"
+                    },
+                    {
+                      "key": "type",
+                      "value": "INCIDENT,PROBLEM"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"invalid_request\",\n  \"description\": \"The 'limit' parameter must be less than or equal to 100.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e4f2d62-2415-4da6-9ce5-f9ae6cdd944f",
+              "name": "Authentication required or token invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "OPEN,PENDING"
+                    },
+                    {
+                      "key": "assigneeByEmail",
+                      "value": "agent@example.com,agent2@example.com"
+                    },
+                    {
+                      "key": "assigneeByFirstName",
+                      "value": "John,Jane"
+                    },
+                    {
+                      "key": "assigneeByLastName",
+                      "value": "Doe,Smith"
+                    },
+                    {
+                      "key": "updatedBefore",
+                      "value": "2026-03-04T14:00:00Z"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "2026-03-01T00:00:00Z"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "2026-03-04T23:59:59Z"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "2026-02-01T00:00:00Z"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "HIGH,URGENT"
+                    },
+                    {
+                      "key": "type",
+                      "value": "INCIDENT,PROBLEM"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"unauthorized\",\n  \"description\": \"Invalid or expired authentication token.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d714d16b-8d66-4acc-a1cd-e480eadf37d1",
+              "name": "Authenticated but insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "OPEN,PENDING"
+                    },
+                    {
+                      "key": "assigneeByEmail",
+                      "value": "agent@example.com,agent2@example.com"
+                    },
+                    {
+                      "key": "assigneeByFirstName",
+                      "value": "John,Jane"
+                    },
+                    {
+                      "key": "assigneeByLastName",
+                      "value": "Doe,Smith"
+                    },
+                    {
+                      "key": "updatedBefore",
+                      "value": "2026-03-04T14:00:00Z"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "2026-03-01T00:00:00Z"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "2026-03-04T23:59:59Z"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "2026-02-01T00:00:00Z"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "HIGH,URGENT"
+                    },
+                    {
+                      "key": "type",
+                      "value": "INCIDENT,PROBLEM"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"forbidden\",\n  \"description\": \"Insufficient permissions to access this resource.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dee088f-6c42-4a31-96a9-95d41a13cbfa",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "OPEN,PENDING"
+                    },
+                    {
+                      "key": "assigneeByEmail",
+                      "value": "agent@example.com,agent2@example.com"
+                    },
+                    {
+                      "key": "assigneeByFirstName",
+                      "value": "John,Jane"
+                    },
+                    {
+                      "key": "assigneeByLastName",
+                      "value": "Doe,Smith"
+                    },
+                    {
+                      "key": "updatedBefore",
+                      "value": "2026-03-04T14:00:00Z"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "2026-03-01T00:00:00Z"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "2026-03-04T23:59:59Z"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "2026-02-01T00:00:00Z"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "HIGH,URGENT"
+                    },
+                    {
+                      "key": "type",
+                      "value": "INCIDENT,PROBLEM"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"internal_server_error\",\n  \"description\": \"An unexpected error occurred while processing your request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b1475ae-08fa-4dae-abe2-8527852690da",
+          "name": "Get a ticket by ID",
+          "request": {
+            "name": "Get a ticket by ID",
+            "description": {
+              "content": "Retrieve detailed information about a specific ticket",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                ":organizationUuid",
+                "tickets",
+                ":ticketId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeComments",
+                  "value": "false",
+                  "description": "Whether to include comments & attachments in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "organizationUuid",
+                  "description": "(Required) The unique identifier for the organization"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "ticketId",
+                  "description": "(Required) The unique identifier for the ticket"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cb60325f-c20a-4115-b603-e95e011743e4",
+              "name": "Ticket details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 12345,\n  \"title\": \"Cannot log in\",\n  \"description\": \"User reports login failure\",\n  \"organizationUuid\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"status\": \"OPEN\",\n  \"assignee\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"agent@example.com\"\n  },\n  \"priority\": \"HIGH\",\n  \"type\": \"INCIDENT\",\n  \"createdAt\": \"2025-07-31T10:00:00Z\",\n  \"updatedAt\": \"2025-08-01T12:00:00Z\",\n  \"commentCount\": 2,\n  \"attachmentCount\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34254526-d610-4998-8f1b-be90630519e1",
+              "name": "Authentication required or token invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"unauthorized\",\n  \"description\": \"Invalid or expired authentication token.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6259b7aa-6dd7-4123-8db0-54b4c9c765a0",
+              "name": "Authenticated but insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"forbidden\",\n  \"description\": \"Insufficient permissions to access this resource.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96287622-246d-4ca0-b58e-4c5d3762ac6f",
+              "name": "Ticket not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"not_found\",\n  \"description\": \"Ticket with ID 12345 was not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6662cc21-309e-48aa-993f-f0679ec67db9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeComments",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"internal_server_error\",\n  \"description\": \"An unexpected error occurred while processing your request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7d38de2-3080-4643-ae37-1dfd4fe66372",
+          "name": "Close a ticket",
+          "request": {
+            "name": "Close a ticket",
+            "description": {
+              "content": "Close a ticket with an optional comment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                ":organizationUuid",
+                "tickets",
+                ":ticketId",
+                "close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "organizationUuid",
+                  "description": "(Required) The unique identifier for the organization"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "ticketId",
+                  "description": "(Required) The unique identifier for the ticket"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1549ed82-0873-4a71-ad2b-950c5af8faac",
+              "name": "Ticket successfully closed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 12345,\n  \"title\": \"Cannot log in\",\n  \"description\": \"User reports login failure\",\n  \"organizationUuid\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"status\": \"CLOSED\",\n  \"assignee\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"agent@example.com\"\n  },\n  \"priority\": \"HIGH\",\n  \"type\": \"INCIDENT\",\n  \"createdAt\": \"2025-07-31T10:00:00Z\",\n  \"updatedAt\": \"2025-08-01T12:30:00Z\",\n  \"commentCount\": 3,\n  \"attachmentCount\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a004203-c77f-492c-882a-2cabc110a7e8",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"invalid_request\",\n  \"description\": \"The 'limit' parameter must be less than or equal to 100.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab46f833-3fcd-4024-8a45-40098503373e",
+              "name": "Authentication required or token invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"unauthorized\",\n  \"description\": \"Invalid or expired authentication token.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d83d4133-484d-4420-83ea-fca9abfa728c",
+              "name": "Authenticated but insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"forbidden\",\n  \"description\": \"Insufficient permissions to access this resource.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ed77fac-f876-4c13-b015-13f0eab7cb56",
+              "name": "Ticket not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"not_found\",\n  \"description\": \"Ticket with ID 12345 was not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "837aa59d-ba72-46d6-83f6-4ee35291744e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "organizations",
+                    ":organizationUuid",
+                    "tickets",
+                    ":ticketId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "organizationUuid",
+                      "description": "(Required) The unique identifier for the organization"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ticketId",
+                      "description": "(Required) The unique identifier for the ticket"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"internal_server_error\",\n  \"description\": \"An unexpected error occurred while processing your request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ticket-api.managedgw.us001-prod.arcticwolf.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "826e5926-3b50-4973-9c63-7bcda74d65d6",
+    "name": "Attachment Ticket API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for retrieving and closing tickets for an organization.\n",
+      "type": "text/plain"
+    }
+  }
+}

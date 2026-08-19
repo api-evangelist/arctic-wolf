@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticket Attachment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attachment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download an attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ticket-api.managedgw.us001-prod.arcticwolf.net/api/v1/organizations/:organizationUuid/tickets/:ticketId/attachments/:attachmentId",
+            "params": [
+              {
+                "name": "organizationUuid",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the organization"
+              },
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the ticket"
+              },
+              {
+                "name": "attachmentId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the attachment"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a presigned URL to download a ticket attachment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

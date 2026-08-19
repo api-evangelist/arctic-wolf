@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Attachment Ticket API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ticket",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tickets for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ticket-api.managedgw.us001-prod.arcticwolf.net/api/v1/organizations/:organizationUuid/tickets",
+            "params": [
+              {
+                "name": "organizationUuid",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the organization"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ticket status(es). Provide single value or comma-separated list."
+              },
+              {
+                "name": "assigneeByEmail",
+                "value": "",
+                "type": "query",
+                "description": "Filter by assignee email(s). Provide single email or comma-separated list."
+              },
+              {
+                "name": "assigneeByFirstName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by assignee first name(s). Provide single name or comma-separated list."
+              },
+              {
+                "name": "assigneeByLastName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by assignee last name(s). Provide single name or comma-separated list."
+              },
+              {
+                "name": "updatedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter tickets that were last updated before this timestamp (ISO 8601, UTC)"
+              },
+              {
+                "name": "updatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter tickets that were last updated after this timestamp (ISO 8601, UTC)"
+              },
+              {
+                "name": "createdBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter tickets that were created before this timestamp (ISO 8601, UTC)"
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter tickets that were created after this timestamp (ISO 8601, UTC)"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Filter by priority level(s). Provide single value or comma-separated list."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ticket type(s). Provide single value or comma-separated list."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to return results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              },
+              {
+                "name": "includeComments",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include comments & attachments in the response"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of tickets for a specific organization"
+        },
+        {
+          "info": {
+            "name": "Get a ticket by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ticket-api.managedgw.us001-prod.arcticwolf.net/api/v1/organizations/:organizationUuid/tickets/:ticketId",
+            "params": [
+              {
+                "name": "organizationUuid",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the organization"
+              },
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the ticket"
+              },
+              {
+                "name": "includeComments",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include comments & attachments in the response"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve detailed information about a specific ticket"
+        },
+        {
+          "info": {
+            "name": "Close a ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ticket-api.managedgw.us001-prod.arcticwolf.net/api/v1/organizations/:organizationUuid/tickets/:ticketId/close",
+            "params": [
+              {
+                "name": "organizationUuid",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the organization"
+              },
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the ticket"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Close a ticket with an optional comment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
