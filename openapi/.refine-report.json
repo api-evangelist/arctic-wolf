@@ -1,9 +1,7 @@
 {
   "provider": "arctic-wolf",
   "sources": [
-    "arctic-wolf-attachment-api-openapi.yml",
-    "arctic-wolf-comment-api-openapi.yml",
-    "arctic-wolf-ticket-api-openapi.yml"
+    "_original/arctic-wolf-ticket-api-openapi.json"
   ],
   "outputs": [
     "arctic-wolf-attachment-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "arctic-wolf-ticket-api-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "arctic-wolf-ticket-api-openapi.json: declared missing tag: Attachment",
+    "arctic-wolf-ticket-api-openapi.json: declared missing tag: Comment",
+    "arctic-wolf-ticket-api-openapi.json: declared missing tag: Ticket",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "arctic-wolf-attachment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arctic-wolf-comment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arctic-wolf-ticket-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

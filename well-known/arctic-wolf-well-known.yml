@@ -1,19 +1,25 @@
 generated: '2026-07-18'
 method: searched
 host: https://arcticwolf.com
-documents:
-- path: /.well-known/security.txt
-  status: 200
-  file: arctic-wolf-security.txt
-- path: /.well-known/openid-configuration
-  status: 404
-- path: /.well-known/oauth-authorization-server
-  status: 404
-- path: /.well-known/api-catalog
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
-notes: >-
-  Probed arcticwolf.com and docs.arcticwolf.com. Only security.txt (RFC 9116) is
-  published. The Ticket API service endpoints are regional pod hosts
-  (ticket-api.managedgw.<pod>-prod.arcticwolf.net) that are not publicly probeable.
+notes: Probed arcticwolf.com and docs.arcticwolf.com. Only security.txt (RFC 9116) is published. The Ticket
+  API service endpoints are regional pod hosts (ticket-api.managedgw.<pod>-prod.arcticwolf.net) that are
+  not publicly probeable.
+hosts:
+- host: https://arcticwolf.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: arctic-wolf-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
