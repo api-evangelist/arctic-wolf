@@ -47,75 +47,6 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
-  responses:
-    UnauthorizedError:
-      description: Authentication required or token invalid
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            unauthorized:
-              value:
-                code: unauthorized
-                description: Invalid or expired authentication token.
-    InternalServerError:
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            internalError:
-              value:
-                code: internal_server_error
-                description: An unexpected error occurred while processing your request.
-    ForbiddenError:
-      description: Authenticated but insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            forbidden:
-              value:
-                code: forbidden
-                description: Insufficient permissions to access this resource.
-    BadRequestError:
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            badRequest:
-              value:
-                code: invalid_request
-                description: The 'limit' parameter must be less than or equal to 100.
-    AddCommentResponse:
-      description: Comment successfully added to ticket
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Comment'
-          examples:
-            addedComment:
-              $ref: '#/components/examples/CommentAddedExample'
-    NotFoundError:
-      description: Ticket not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            notFound:
-              value:
-                code: not_found
-                description: Ticket with ID 12345 was not found.
-            attachmentNotFound:
-              value:
-                code: not_found
-                description: Attachment with ID 123 belonging to Ticket with ID 456 was not found.
   schemas:
     CommentType:
       type: string
@@ -125,6 +56,29 @@ components:
       - INTERNAL
       minLength: 6
       maxLength: 8
+    User:
+      type: object
+      description: Represents a user (assignee or author)
+      properties:
+        firstName:
+          type: string
+          pattern: ^[a-zA-Z\s\-\.,\']*$
+          minLength: 1
+          maxLength: 100
+          description: First name of the user
+        lastName:
+          type: string
+          pattern: ^[a-zA-Z\s\-\.,\']*$
+          minLength: 1
+          maxLength: 100
+          description: Last name of the user
+        email:
+          type: string
+          format: email
+          pattern: ^[^@\s]+@[^@\s]+\.[^@\s]+$
+          minLength: 3
+          maxLength: 254
+          description: Email address of the user
     Comment:
       type: object
       description: Represents a comment on a ticket
@@ -186,29 +140,75 @@ components:
           description: The comment text to add (maximum 65535 characters)
           examples:
           - We are currently investigating this issue.
-    User:
-      type: object
-      description: Represents a user (assignee or author)
-      properties:
-        firstName:
-          type: string
-          pattern: ^[a-zA-Z\s\-\.,\']*$
-          minLength: 1
-          maxLength: 100
-          description: First name of the user
-        lastName:
-          type: string
-          pattern: ^[a-zA-Z\s\-\.,\']*$
-          minLength: 1
-          maxLength: 100
-          description: Last name of the user
-        email:
-          type: string
-          format: email
-          pattern: ^[^@\s]+@[^@\s]+\.[^@\s]+$
-          minLength: 3
-          maxLength: 254
-          description: Email address of the user
+  responses:
+    AddCommentResponse:
+      description: Comment successfully added to ticket
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Comment'
+          examples:
+            addedComment:
+              $ref: '#/components/examples/CommentAddedExample'
+    ForbiddenError:
+      description: Authenticated but insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            forbidden:
+              value:
+                code: forbidden
+                description: Insufficient permissions to access this resource.
+    UnauthorizedError:
+      description: Authentication required or token invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                code: unauthorized
+                description: Invalid or expired authentication token.
+    NotFoundError:
+      description: Ticket not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            notFound:
+              value:
+                code: not_found
+                description: Ticket with ID 12345 was not found.
+            attachmentNotFound:
+              value:
+                code: not_found
+                description: Attachment with ID 123 belonging to Ticket with ID 456 was not found.
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            internalError:
+              value:
+                code: internal_server_error
+                description: An unexpected error occurred while processing your request.
+    BadRequestError:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            badRequest:
+              value:
+                code: invalid_request
+                description: The 'limit' parameter must be less than or equal to 100.
   requestBodies:
     AddCommentRequest:
       description: Add comment to a ticket
@@ -217,6 +217,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/AddCommentRequest'
+  examples:
+    CommentAddedExample:
+      summary: Example of a comment added to a ticket
+      value:
+        id: 90002
+        body: Thank you for reporting this issue. I've escalated it to our engineering team and will provide an update within 24 hours.
+        author:
+          firstName: Jane
+          lastName: Smith
+          email: agent@example.com
+        createdAt: '2026-03-04T14:30:00Z'
+        type: PUBLIC
   parameters:
     OrganizationUuid:
       in: path
@@ -245,18 +257,6 @@ components:
       examples:
         ticketId:
           value: 12345
-  examples:
-    CommentAddedExample:
-      summary: Example of a comment added to a ticket
-      value:
-        id: 90002
-        body: Thank you for reporting this issue. I've escalated it to our engineering team and will provide an update within 24 hours.
-        author:
-          firstName: Jane
-          lastName: Smith
-          email: agent@example.com
-        createdAt: '2026-03-04T14:30:00Z'
-        type: PUBLIC
   securitySchemes:
     BearerAuth:
       type: http
