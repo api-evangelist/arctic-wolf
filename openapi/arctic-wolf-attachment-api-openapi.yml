@@ -44,105 +44,6 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
-  parameters:
-    AttachmentId:
-      in: path
-      name: attachmentId
-      required: true
-      schema:
-        type: integer
-        format: int64
-        minimum: 1
-        maximum: 9223372036854776000
-      description: The unique identifier for the attachment
-      examples:
-        attachmentId:
-          value: 70001
-    OrganizationUuid:
-      in: path
-      name: organizationUuid
-      required: true
-      schema:
-        type: string
-        format: uuid
-        pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
-        minLength: 36
-        maxLength: 36
-      description: The unique identifier for the organization
-      examples:
-        uuid:
-          value: 550e8400-e29b-41d4-a716-446655440000
-    TicketId:
-      in: path
-      name: ticketId
-      required: true
-      schema:
-        type: integer
-        format: int64
-        minimum: 1
-        maximum: 9223372036854776000
-      description: The unique identifier for the ticket
-      examples:
-        ticketId:
-          value: 12345
-  responses:
-    ForbiddenError:
-      description: Authenticated but insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            forbidden:
-              value:
-                code: forbidden
-                description: Insufficient permissions to access this resource.
-    InternalServerError:
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            internalError:
-              value:
-                code: internal_server_error
-                description: An unexpected error occurred while processing your request.
-    UnauthorizedError:
-      description: Authentication required or token invalid
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            unauthorized:
-              value:
-                code: unauthorized
-                description: Invalid or expired authentication token.
-    AttachmentURLResponse:
-      description: URL to download the attachment
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/AttachmentURL'
-          examples:
-            attachmentURL:
-              $ref: '#/components/examples/AttachmentURLExample'
-    NotFoundError:
-      description: Ticket not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            notFound:
-              value:
-                code: not_found
-                description: Ticket with ID 12345 was not found.
-            attachmentNotFound:
-              value:
-                code: not_found
-                description: Attachment with ID 123 belonging to Ticket with ID 456 was not found.
   schemas:
     Error:
       type: object
@@ -175,6 +76,105 @@ components:
           minLength: 10
           maxLength: 2048
           description: Presigned URL for downloading the attachment (expires after a limited time)
+  parameters:
+    OrganizationUuid:
+      in: path
+      name: organizationUuid
+      required: true
+      schema:
+        type: string
+        format: uuid
+        pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
+        minLength: 36
+        maxLength: 36
+      description: The unique identifier for the organization
+      examples:
+        uuid:
+          value: 550e8400-e29b-41d4-a716-446655440000
+    TicketId:
+      in: path
+      name: ticketId
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+        maximum: 9223372036854776000
+      description: The unique identifier for the ticket
+      examples:
+        ticketId:
+          value: 12345
+    AttachmentId:
+      in: path
+      name: attachmentId
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+        maximum: 9223372036854776000
+      description: The unique identifier for the attachment
+      examples:
+        attachmentId:
+          value: 70001
+  responses:
+    AttachmentURLResponse:
+      description: URL to download the attachment
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AttachmentURL'
+          examples:
+            attachmentURL:
+              $ref: '#/components/examples/AttachmentURLExample'
+    UnauthorizedError:
+      description: Authentication required or token invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                code: unauthorized
+                description: Invalid or expired authentication token.
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            internalError:
+              value:
+                code: internal_server_error
+                description: An unexpected error occurred while processing your request.
+    NotFoundError:
+      description: Ticket not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            notFound:
+              value:
+                code: not_found
+                description: Ticket with ID 12345 was not found.
+            attachmentNotFound:
+              value:
+                code: not_found
+                description: Attachment with ID 123 belonging to Ticket with ID 456 was not found.
+    ForbiddenError:
+      description: Authenticated but insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            forbidden:
+              value:
+                code: forbidden
+                description: Insufficient permissions to access this resource.
   examples:
     AttachmentURLExample:
       summary: Example of a presigned URL for downloading an attachment
