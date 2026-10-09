@@ -7,14 +7,17 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: www.arcticwolf.com
   final_host: arcticwolf.com
-  ownership: inherited
+  ownership: own
   owner: arctic-wolf
   shares_host_with: null
-  inherited_from: arcticwolf.com
+  inherited_from: null
+  alias_of: arcticwolf.com
   verdict: scored
-  score: null
+  score: 38
+  band: 6
+  band_label: dominant
   host_score: 38
-  density: null
+  density: 23.2
   words: 1638
   tiers:
     agentic: 13
