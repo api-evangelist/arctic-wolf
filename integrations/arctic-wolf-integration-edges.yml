@@ -1,0 +1,25 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://aws.amazon.com/marketplace/
+marketplace_apps: []
+edges:
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=0da15e44-0c0d-43ae-a512-0042446e5023
+  listing_count: 9
+  apps:
+  - Aurora Protect
+  - Arctic Wolf Managed Detection and Response (MDR)
+  - Aurora Endpoint Defense
+  - Arctic Wolf Managed Security Awareness
+  - Arctic Wolf Managed Risk
+  seller_name: Arctic Wolf
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
