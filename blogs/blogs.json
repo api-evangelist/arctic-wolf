@@ -12,10 +12,17 @@
       "source": "https://arcticwolf.com/feed/",
       "feed_url": "https://arcticwolf.com/feed/",
       "title": "",
-      "saved": 4,
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://arcticwolf.com/resources/category/blog/feed/",
+      "feed_url": "https://arcticwolf.com/resources/category/blog/feed/",
+      "title": "",
+      "saved": 0,
       "method": "feed"
     }
   ],
-  "post_count": 4,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 20,
+  "fetched": "2026-10-17T14:53:57Z"
 }
