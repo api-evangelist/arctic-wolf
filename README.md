@@ -64,6 +64,129 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Arctic Wolf is a company surfaced as a portfolio company of lightspeed-venture-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Arctic Wolf is a security operations company delivering 24x7 AI-driven managed detection and response (MDR), managed risk, incident response, and endpoint security through its cloud-native Aurora Platform and Concierge Security Team. For developers and OEM partners, Arctic Wolf exposes a set of REST and standards-based APIs via docs.arcticwolf.com and the Unified Portal: a Ticket API for programmatically listing, commenting on, and closing security tickets; a User API and Aurora Endpoint Defense API for user and endpoint management; and Threat Intelligence feed APIs (TAXII 1.1, TAXII 2.1, and a Blocklist API) for consuming indicators into your own security tooling. Authentication uses bearer JWT tokens generated from Personal API Keys in the Unified Portal, with regional service endpoints (US, EU, AU, CA pods).
 
-Backed by: lightspeed-venture-partners
+**Areas:** Company · Security · Cybersecurity · Managed Detection and Response · Security Operations · Threat Intelligence · Ticketing · Endpoint Security · SOC
+
+## Arctic Wolf on APIs.io
+
+Everything profiled for Arctic Wolf is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/arctic-wolf/](https://apis.io/providers/arctic-wolf/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Arctic Wolf Attachment API](https://apis.io/apis/arctic-wolf/arctic-wolf-attachment-api/) — The Attachment API from Arctic Wolf — 1 operation(s) for attachment.
+- [Arctic Wolf Comment API](https://apis.io/apis/arctic-wolf/arctic-wolf-comment-api/) — The Comment API from Arctic Wolf — 1 operation(s) for comment.
+- [Arctic Wolf Ticket API](https://apis.io/apis/arctic-wolf/arctic-wolf-ticket-api/) — The Ticket API from Arctic Wolf — 3 operation(s) for ticket.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [arctic-wolf-ticket](https://apis.io/servers/arctic-wolf/arctic-wolf-ticket/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Arctic Wolf Agentic Access](https://apis.io/agentic-access/arctic-wolf/arctic-wolf-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Ticket Attachment API](https://apis.io/collections/arctic-wolf/open-arctic-wolf-attachment-api/)
+- [Ticket Attachment Comment API](https://apis.io/collections/arctic-wolf/open-arctic-wolf-comment-api/)
+- [Attachment Ticket API](https://apis.io/collections/arctic-wolf/open-arctic-wolf-ticket-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Arctic Wolf Ticket Api Overlay](https://apis.io/overlays/arctic-wolf/arctic-wolf-ticket-api-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Arctic Wolf Authentication](https://apis.io/security/arctic-wolf/arctic-wolf-authentication/)
+- [Arctic Wolf Domain Security](https://apis.io/security/arctic-wolf/arctic-wolf-domain-security/)
+- [Arctic Wolf Trust Center](https://apis.io/security/arctic-wolf/arctic-wolf-trust-center/)
+- [Arctic Wolf Vulnerability Disclosure](https://apis.io/security/arctic-wolf/arctic-wolf-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.arcticwolf.com/)
+- [Documentation](https://docs.arcticwolf.com/en/developer-and-oem)
+- [Getting started](https://docs.arcticwolf.com/en/developer-and-oem/ticket-api/ticket-api-quick-start-guide/use-the-ticket-api)
+- [API reference](https://docs.arcticwolf.com/en/developer-and-oem/ticket-api/arctic-wolf-ticket-api/api-specifications/ticket-api)
+- [Pricing](https://arcticwolf.com/request-demo/)
+- [Sign up](https://portal.arcticwolf.com/)
+- [Support](https://docs.arcticwolf.com/en/arctic-wolf-unified-portal)
+- [Blog](https://arcticwolf.com/resources/blog/)
+- [Security](https://arcticwolf.com/vulnerability-disclosure)
+- [Compliance](https://arcticwolf.com/compliance/)
+- [Terms of service](https://arcticwolf.com/terms-conditions/)
+- [Privacy policy](https://arcticwolf.com/privacy-policy/)
+- [GitHub](https://github.com/rtkwlf)
+- [Status](https://status.arcticwolf.com/)
+
+## API Evangelist rating
+
+**Kin Score 42.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 50.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 36.8 |
+
+**Agent readiness 23.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 31.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/arctic-wolf/](https://apis.io/providers/arctic-wolf/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Arctic Wolf: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/arctic-wolf/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
